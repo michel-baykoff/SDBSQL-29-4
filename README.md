@@ -43,6 +43,8 @@ where length > (select avg(length) from film)
 select MONTH(payment_date) as month, SUM(amount) as month_total, count(r.rental_date) as rents from payment p 
 join rental r on p.rental_id = r.rental_id 
 group by MONTH(payment_date), MONTH(r.rental_date)
+order by month_total DESC 
+limit 1
 ```
 
 ![task 3](img/03.png)
